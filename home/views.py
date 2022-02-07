@@ -44,14 +44,14 @@ def index(request):
 
 
     products_picked = Product.objects.all().order_by('?')[:4]   #Random selected 4 products
-
+    category=Category.objects.all()
     page="home"
     context={'setting':setting,
              'page':page,
              'products_slider': products_slider,
              'products_latest': products_latest,
              'products_picked': products_picked,
-             #'category':category
+             'category':category,
              }
     return render(request,'index.html',context)
 
